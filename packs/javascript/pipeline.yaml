@@ -24,7 +24,7 @@ pipelines:
           - name: HTTPS_PROXY
             value: 10.110.63.27:8080
           - name: NO_PROXY
-            value: 172.20.0.0/16,localhost,127.0.0.1,10.125.224.0/19,169.254.169.254,.internal,.s3.amazonaws.com.cn,.s3.cn-north-1.amazonaws.com.cn,api.ecr.cn-north-1.amazonaws.com.cn,.dkr.ecr.cn-north-1.amazonaws.com.cn,ec2.cn-north-1.amazonaws.com.cn,.elb.cn-north-1.amazonaws.com.cn
+            value: 172.20.0.0/16,localhost,127.0.0.1,10.125.224.0/19,169.254.169.254,jenkins-x-chartmuseum:8080,.internal,.s3.amazonaws.com.cn,.s3.cn-north-1.amazonaws.com.cn,api.ecr.cn-north-1.amazonaws.com.cn,.dkr.ecr.cn-north-1.amazonaws.com.cn,ec2.cn-north-1.amazonaws.com.cn,.elb.cn-north-1.amazonaws.com.cn
         - sh: jx preview --app $APP_NAME --dir ../..
           name: jx-preview
           image: gcr.io/jenkinsxio/jx-cli
@@ -34,7 +34,7 @@ pipelines:
           - name: HTTPS_PROXY
             value: 10.110.63.27:8080
           - name: NO_PROXY
-            value: 172.20.0.0/16,localhost,127.0.0.1,10.125.224.0/19,169.254.169.254,.internal,.s3.amazonaws.com.cn,.s3.cn-north-1.amazonaws.com.cn,api.ecr.cn-north-1.amazonaws.com.cn,.dkr.ecr.cn-north-1.amazonaws.com.cn,ec2.cn-north-1.amazonaws.com.cn,.elb.cn-north-1.amazonaws.com.cn
+            value: 172.20.0.0/16,localhost,127.0.0.1,10.125.224.0/19,169.254.169.254,jenkins-x-chartmuseum:8080,.internal,.s3.amazonaws.com.cn,.s3.cn-north-1.amazonaws.com.cn,api.ecr.cn-north-1.amazonaws.com.cn,.dkr.ecr.cn-north-1.amazonaws.com.cn,ec2.cn-north-1.amazonaws.com.cn,.elb.cn-north-1.amazonaws.com.cn
 
   release:
     build:
@@ -62,7 +62,7 @@ pipelines:
           - name: HTTPS_PROXY
             value: 10.110.63.27:8080
           - name: NO_PROXY
-            value: 172.20.0.0/16,localhost,127.0.0.1,10.125.224.0/19,169.254.169.254,.internal,.s3.amazonaws.com.cn,.s3.cn-north-1.amazonaws.com.cn,api.ecr.cn-north-1.amazonaws.com.cn,.dkr.ecr.cn-north-1.amazonaws.com.cn,ec2.cn-north-1.amazonaws.com.cn,.elb.cn-north-1.amazonaws.com.cn
+            value: 172.20.0.0/16,localhost,127.0.0.1,10.125.224.0/19,169.254.169.254,jenkins-x-chartmuseum:8080,.internal,.s3.amazonaws.com.cn,.s3.cn-north-1.amazonaws.com.cn,api.ecr.cn-north-1.amazonaws.com.cn,.dkr.ecr.cn-north-1.amazonaws.com.cn,ec2.cn-north-1.amazonaws.com.cn,.elb.cn-north-1.amazonaws.com.cn
 
         - comment: promote through all 'Auto' promotion Environments
           sh: jx promote -b --all-auto --timeout 1h
@@ -74,7 +74,7 @@ pipelines:
           - name: HTTPS_PROXY
             value: 10.110.63.27:8080
           - name: NO_PROXY
-            value: 172.20.0.0/16,localhost,127.0.0.1,10.125.224.0/19,169.254.169.254,.internal,.s3.amazonaws.com.cn,.s3.cn-north-1.amazonaws.com.cn,api.ecr.cn-north-1.amazonaws.com.cn,.dkr.ecr.cn-north-1.amazonaws.com.cn,ec2.cn-north-1.amazonaws.com.cn,.elb.cn-north-1.amazonaws.com.cn
+            value: 172.20.0.0/16,localhost,127.0.0.1,10.125.224.0/19,169.254.169.254,jenkins-x-chartmuseum:8080,.internal,.s3.amazonaws.com.cn,.s3.cn-north-1.amazonaws.com.cn,api.ecr.cn-north-1.amazonaws.com.cn,.dkr.ecr.cn-north-1.amazonaws.com.cn,ec2.cn-north-1.amazonaws.com.cn,.elb.cn-north-1.amazonaws.com.cn
 
     setVersion:
       steps:
