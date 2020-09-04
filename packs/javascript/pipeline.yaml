@@ -18,9 +18,19 @@ pipelines:
         - sh: make preview
           name: make-preview
           image: gcr.io/jenkinsxio/builder-go
+          env: 
+          - name: HTTP_PROXY
+            value: 10.110.63.27:8080
+          - name: HTTPS_PROXY
+            value: 10.110.63.27:8080
         - sh: jx preview --app $APP_NAME --dir ../..
           name: jx-preview
           image: gcr.io/jenkinsxio/jx-cli
+          env: 
+          - name: HTTP_PROXY
+            value: 10.110.63.27:8080
+          - name: HTTPS_PROXY
+            value: 10.110.63.27:8080
 
   release:
     build:
@@ -42,10 +52,20 @@ pipelines:
           sh: jx step helm release
           name: helm-release
           image: gcr.io/jenkinsxio-labs-private/jxl
+          env: 
+          - name: HTTP_PROXY
+            value: 10.110.63.27:8080
+          - name: HTTPS_PROXY
+            value: 10.110.63.27:8080
         - comment: promote through all 'Auto' promotion Environments
           sh: jx promote -b --all-auto --timeout 1h
           name: jx-promote
           image: gcr.io/jenkinsxio/jx-cli
+          env: 
+          - name: HTTP_PROXY
+            value: 10.110.63.27:8080
+          - name: HTTPS_PROXY
+            value: 10.110.63.27:8080
     setVersion:
       steps:
       - sh: jx step next-version --filename package.json
