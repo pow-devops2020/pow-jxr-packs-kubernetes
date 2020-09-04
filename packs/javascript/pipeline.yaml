@@ -7,7 +7,7 @@ pipelines:
       steps:
       - sh: /kaniko/executor $KANIKO_FLAGS --cache=true --cache-dir=/workspace --context=/workspace/source --dockerfile=/workspace/source/Dockerfile --destination=$DOCKER_REGISTRY/$DOCKER_REGISTRY_ORG/$APP_NAME:$VERSION --cache-repo=$DOCKER_REGISTRY/$DOCKER_REGISTRY_ORG/cache
         name: container-build
-        image: gcr.io/kaniko-project/executor
+        image: gcr.io/kaniko-project/executor:debug-v0.22.0
         env:
         - name: NO_GOOGLE_APPLICATION_CREDENTIALS
           value: "true"
@@ -27,7 +27,7 @@ pipelines:
       steps:
       - sh: /kaniko/executor $KANIKO_FLAGS --cache=true --cache-dir=/workspace --context=/workspace/source --dockerfile=/workspace/source/Dockerfile --destination=$DOCKER_REGISTRY/$DOCKER_REGISTRY_ORG/$APP_NAME:$VERSION --cache-repo=$DOCKER_REGISTRY/$DOCKER_REGISTRY_ORG/cache
         name: container-build
-        image: gcr.io/kaniko-project/executor
+        image: gcr.io/kaniko-project/executor:debug-v0.22.0
         env:
         - name: NO_GOOGLE_APPLICATION_CREDENTIALS
           value: "true"
